@@ -9,10 +9,7 @@ export default class Map{
         this.freeSpace = document.getElementsByClassName("freeSpace");
         this.box = [];
 
-        //Ici l'instantiation des arrays permet d'avoir un tableau avec plusieurs valeurs 
-        //et non pas plusieurs tableaux a cause des boucles dans lequel ils sont utilisés (avec par exemple une ou plusieurs valeurs)
         this.arrayClassWeapons = [];
-
         this.arrayClassPlayers = [];
         //On push un element vide à l'index 0 pour simplifier index 1 = Player 1 et ainsi de suite
         this.arrayClassPlayers.push("");
@@ -38,7 +35,6 @@ export default class Map{
             for (this.j = 0; this.j < this.y; this.j++){
                 this.box[this.i][this.j] = new Box(
                     this.td = document.createElement('td'),
-                    //this.td.setAttribute("empty", true),
                     this.td.setAttribute("class","freeSpace"),
                     this.td.setAttribute("y",parseInt(this.j)),
                     this.td.setAttribute("x",parseInt(this.i)),
@@ -54,8 +50,6 @@ export default class Map{
         return this.randomBox;
     }
 
-    //L'appel de cette fonction dans genObastacle, genWeapons, genPlayers,
-    //Va m'éviter d'utiliser des this.box.block, this.box.empty, this.box.reached (C'est une préference personnelle)
     randomCase = (nbCase) =>{
 
         //Ici je cherche a générer TOUTES mes cases aléatoires
@@ -169,12 +163,6 @@ export default class Map{
     playersNoAdjacent(){
 
         if(Math.abs(this.player1.currentPosition[0] - this.player2.currentPosition[0])<=2 || Math.abs(this.player1.currentPosition[1] - this.player2.currentPosition[1])<=2){
-
-            //console.log("PROBLEME : position Player 1 & 2 trop proche");
-            //console.log(Math.abs(this.player1.currentPosition[0] - this.player2.currentPosition[0]));
-            //console.log(Math.abs(this.player1.currentPosition[1] - this.player2.currentPosition[1]));
-            //console.log("Position Player1 : " + this.player1.currentPosition[0] + this.player1.currentPosition[1]);
-            //console.log("Ancienne position Player2 : " + this.player2.currentPosition[0] + this.player2.currentPosition[1]);
             
             this.player2.currentPosition[0] = "";
             this.player2.currentPosition[1] = "";
@@ -188,10 +176,6 @@ export default class Map{
             );
             this.arrayClassPlayers[2]= document.getElementsByClassName("player2")[0];
             
-            //console.log();
-            //console.log("Position Player1 : " + this.player1.currentPosition[0] + this.player1.currentPosition[1]);
-            //console.log("Nouvelle position Player2 : " + this.player2.currentPosition[0] + this.player2.currentPosition[1]);
-
             this.playersNoAdjacent();
         }
     }

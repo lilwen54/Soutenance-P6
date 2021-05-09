@@ -174,11 +174,6 @@ export default class Game{
 
         for (let i = 0; i < this.arrayClassWeapons.length; i++) {
 
-            //On ne prend pas en compte le poing
-            if(i==0){
-
-            }
-
             if(this.arrayClassWeapons[i].id == this.currentPlayer.playerBalise.id){
 
                 //On verifie d'abord que le player ai une arme
@@ -186,7 +181,7 @@ export default class Game{
                     //console.log("le player prend l'arme, au SOL : ");
 
                     if(this.arrayClassWeapons[i].classList[0] == ("weapon0")){
-                        //Toujours notre poing à ne pas prendre en compte
+                        //Le poing à ne pas prendre en compte
                     }
         
                     else if(this.arrayClassWeapons[i].classList[0] == ("weapon"+i)){
@@ -194,7 +189,7 @@ export default class Game{
                         this.currentPlayer.weapon = this.arrayWeapons[i];
                         //console.log("arme en possession du joueur");
                         this.currentPlayer.setDamage();
-                        alert("Vous récupérer une arme");
+                        
                     }
                 }
         
@@ -204,7 +199,7 @@ export default class Game{
                     //console.log("le player prend l'arme, au SOL : ");
                     
                     if(this.arrayClassWeapons[i].classList[0] == ("weapon0")){
-                        //Toujours notre poing à ne pas prendre en compte
+                        //Le poing à ne pas prendre en compte
                     }
 
                     else if(this.arrayClassWeapons[i].classList[0] == ("weapon"+i)){
@@ -212,13 +207,14 @@ export default class Game{
                         this.currentPlayer.weapon = this.arrayWeapons[i];
                         //console.log("arme en possession du joueur");
                         this.currentPlayer.setDamage();
-                        alert("Vous récupérer une arme");
+
                     }
                     this.arrayClassWeapons[i].classList.remove("weapon"+i);
                     this.arrayClassWeapons[i] = this.currentPlayer.currentPosition;
                     this.arrayClassWeapons[i] = this.currentPlayer.playerBalise;
                 }
                 this.currentPlayer.setHtml(); 
+                //alert("Vous récupérer une arme");
             }
         }   
     }
@@ -314,21 +310,14 @@ export default class Game{
         //On rajoute le player et de l'arme sur la nouvelle case
         document.getElementById(this.currentPlayer.newPosition).classList.remove("freeSpace");
         document.getElementById(this.currentPlayer.newPosition).classList.add("player"+this.currentPlayer.playerIdentificationNumber);
-        //this.playerBalise = document.getElementById(this.currentPlayer.newPosition);
         this.arrayClassPlayers[this.currentPlayer.playerIdentificationNumber] = this.currentPlayer.playerBalise;
 
         //DONC Si mon joueur est en possession d'une arme, l'arme suit le joueur
         
         if(this.currentPlayer.weapon.name !== "fist"){
         if(this.arrayClassWeapons[this.currentPlayer.weapon.weaponIdentificationNumber] !== this.currentPlayer.playerBalise){
-            
             this.arrayClassWeapons[this.currentPlayer.weapon.weaponIdentificationNumber].classList.remove("weapon"+this.currentPlayer.weapon.weaponIdentificationNumber);
-            //this.weaponImg.classList.remove("weapon" + this.currentPlayer.weapon.weaponIdentificationNumber);
-
             this.arrayClassWeapons[this.currentPlayer.weapon.weaponIdentificationNumber] = this.currentPlayer.playerBalise;
-
-            //this.arrayClassWeapons[this.currentPlayer.playerIdentificationNumber].classList.remove("weapon"+this.currentPlayer.weapon.weaponIdentificationNumber);
-
             this.arrayClassWeapons[this.currentPlayer.weapon.weaponIdentificationNumber].classList.add("weapon"+this.currentPlayer.weapon.weaponIdentificationNumber);
             }
         }
@@ -345,8 +334,6 @@ export default class Game{
         if(Math.abs(this.map.player1.currentPosition[0] - this.map.player2.currentPosition[0])==0 && Math.abs(this.map.player1.currentPosition[1] - this.map.player2.currentPosition[1])==1
         ||
         Math.abs(this.map.player1.currentPosition[1] - this.map.player2.currentPosition[1])==0 && Math.abs(this.map.player1.currentPosition[0] - this.map.player2.currentPosition[0])==1 ){
-            //console.log(Math.abs(this.map.player1.currentPosition[0] - this.map.player2.currentPosition[0]));
-            //console.log(Math.abs(this.map.player1.currentPosition[1] - this.map.player2.currentPosition[1]));
             this.player_Turn.classList.remove("player"+this.currentPlayer.playerIdentificationNumber)
             this.fight();
         }
@@ -404,8 +391,7 @@ export default class Game{
             if(currentPlayer.classType == "player1"){
                 currentPlayer = player2;
                 opponent = player1;
-                //console.log(`joueur actuel : ${currentPlayer.classType}` );
-                //console.log(`adversaire : ${opponent.classType}` );
+
                 imgP2.style.opacity = "1";
                 imgP1.style.opacity = "0.7";
                 return currentPlayer, opponent;
@@ -413,8 +399,7 @@ export default class Game{
             else if(currentPlayer.classType == "player2"){
                 currentPlayer = player1;
                 opponent = player2;
-                //console.log(`joueur actuel : ${currentPlayer.classType}` );
-                //console.log(`adversaire : ${opponent.classType}` );
+
                 imgP2.style.opacity = "0.7";
                 imgP1.style.opacity = "1";
                 return currentPlayer, opponent;
