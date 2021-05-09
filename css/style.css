@@ -1,0 +1,214 @@
+@charset "UTF-8";
+footer#intro {
+  color: yellow;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer#intro p {
+  font-size: 50px;
+  background-color: green;
+}
+
+div#presentation {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+#timeToMove {
+  margin: 20px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.attributes {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.attributes p {
+  border: 2px solid greenyellow;
+  border-radius: 10px;
+  padding: 1px;
+  margin: 1px;
+}
+
+div#player_Turn {
+  height: 100px;
+  width: 100px;
+}
+
+div#playerTurn {
+  text-align: center;
+}
+
+div#playerTurn button {
+  margin-top: 310px;
+}
+
+div.col-lg-4 p {
+  background-color: black;
+  border-radius: 5px;
+  color: ivory;
+  font-weight: bold;
+}
+
+div h1 {
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (min-width: 990px) {
+  #background {
+    background-image: url("/img/Background/Konoha.jpg");
+    background-size: 2000px;
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+    background-position-x: center;
+  }
+
+  table {
+    margin-top: 70px;
+    position: absolute;
+    /* postulat de départ */
+    top: 50%;
+    left: 50%;
+    /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%);
+    /* décalage de 50% de sa propre taille */
+    text-align: center;
+    width: 450px !important;
+    height: 450px !important;
+  }
+
+  table, tr, td {
+    border: 1px solid #c3a20e !important;
+    background-color: white;
+  }
+}
+/*REGLER LE PROBLEME DE RESPONSIVE*/
+@media (max-width: 990px) {
+  #background {
+    background-image: url("/img/Background/Konoha.jpg");
+    background-size: 2000px;
+    background-repeat: repeat;
+    background-position-y: 0px;
+    background-position-x: center;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  table {
+    margin-top: 100px;
+    position: relative;
+    /* postulat de départ */
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  table, tr, td {
+    border: 1px solid red !important;
+    background-color: aliceblue;
+  }
+}
+button {
+  margin-bottom: 5px !important;
+}
+
+.obstacle {
+  background-color: black;
+  background: no-repeat url(../img/wall/wall.png);
+  background-size: 100%;
+}
+
+/*weapon au niveau de l'attribut des joueurs*/
+.weaponImg {
+  height: 100px;
+  width: 100px;
+}
+
+.shield {
+  height: 100px;
+  width: 100px;
+  opacity: 0.5;
+  background: no-repeat url(../img/shield/shield.png);
+  background-size: 100%;
+}
+
+.weapon0 {
+  background: no-repeat url(../img/weapons/Fist.png);
+  background-size: 100%;
+}
+
+.weapon1 {
+  background: no-repeat url(../img/weapons/Knife.png);
+  background-size: 100%;
+}
+
+.weapon2 {
+  background: no-repeat url(../img/weapons/Gun.png);
+  background-size: 100%;
+}
+
+.weapon3 {
+  background: no-repeat url(../img/weapons/Katana.png);
+  background-size: 100%;
+}
+
+.weapon4 {
+  background: no-repeat url(../img/weapons/Assault.png);
+  background-size: 100%;
+}
+
+img.p2 {
+  opacity: 0.7;
+}
+
+.player1 {
+  background: no-repeat url("../img/players/Male.png");
+  background-size: 100%;
+}
+
+.player2 {
+  background: no-repeat url("../img/players/Female.png");
+  background-size: 100%;
+}
+
+#battle {
+  display: none;
+}
+
+#changeTurn {
+  display: none;
+}
+
+div.attributes {
+  padding: 1px;
+  margin-top: 250px !important;
+  margin: 1px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  font-weight: bold;
+}
+
+div.attributes p {
+  color: cornsilk;
+  text-align: center;
+  background-color: black;
+  background-size: 100%;
+}
+
+#playerTurn {
+  height: 300px;
+  width: 300px;
+}
+
+/*# sourceMappingURL=style.css.map */
