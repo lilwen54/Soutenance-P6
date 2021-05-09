@@ -190,6 +190,7 @@ export default class Game{
                     }
         
                     else if(this.arrayClassWeapons[i].classList[0] == ("weapon"+i)){
+                        this.currentPlayer.weaponLeft = this.currentPlayer.weapon;
                         this.currentPlayer.weapon = this.arrayWeapons[i];
                         //console.log("arme en possession du joueur");
                         this.currentPlayer.setDamage();
@@ -207,6 +208,7 @@ export default class Game{
                     }
 
                     else if(this.arrayClassWeapons[i].classList[0] == ("weapon"+i)){
+                        this.currentPlayer.weaponLeft = this.currentPlayer.weapon;
                         this.currentPlayer.weapon = this.arrayWeapons[i];
                         //console.log("arme en possession du joueur");
                         this.currentPlayer.setDamage();
@@ -321,7 +323,7 @@ export default class Game{
         if(this.arrayClassWeapons[this.currentPlayer.weapon.weaponIdentificationNumber] !== this.currentPlayer.playerBalise){
             
             this.arrayClassWeapons[this.currentPlayer.weapon.weaponIdentificationNumber].classList.remove("weapon"+this.currentPlayer.weapon.weaponIdentificationNumber);
-            this.currentPlayer.weaponImg.classList.remove("weapon" + this.currentPlayer.weapon.weaponIdentificationNumber);
+            //this.weaponImg.classList.remove("weapon" + this.currentPlayer.weapon.weaponIdentificationNumber);
 
             this.arrayClassWeapons[this.currentPlayer.weapon.weaponIdentificationNumber] = this.currentPlayer.playerBalise;
 

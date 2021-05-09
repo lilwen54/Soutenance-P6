@@ -51,6 +51,9 @@ export default class Player{
             let weaponName = document.querySelector(".weaponName");
             this.weaponImg = document.querySelector(".weaponImg");
             weaponName.innerHTML = "Weapon : "+this.weapon.name;
+            if(this.weaponLeft != null){
+                this.weaponImg.classList.remove("weapon" + this.weaponLeft.weaponIdentificationNumber);
+            }
             this.weaponImg.classList.add("weapon" + this.weapon.weaponIdentificationNumber);
             let degats = document.querySelector(".degats");
             degats.innerHTML = "Damages : " + this.damages;
